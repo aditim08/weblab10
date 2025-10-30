@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Grace of Lord Krishna</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  /* Background Animation */
+  @keyframes gradientShift {
+    0% { background: linear-gradient(135deg, #ffffff, #e6e1ff); }
+    50% { background: linear-gradient(135deg, #f9f7ff, #e0d5ff); }
+    100% { background: linear-gradient(135deg, #ffffff, #e6e1ff); }
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #3d2b56;
+    text-align: center;
+    animation: gradientShift 20s ease infinite;
+    background-size: 400% 400%;
+    overflow-x: hidden;
+  }
+
+  /* Glowing Title */
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    color: #5e3ca3;
+    text-shadow: 0 0 10px rgba(180, 150, 250, 0.7), 0 0 20px rgba(200, 170, 255, 0.4);
+    margin-top: 35px;
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(160, 130, 250, 0.6); }
+    50% { text-shadow: 0 0 25px rgba(190, 150, 255, 0.9); }
+  }
+
+  #container {
+    background-color: rgba(250, 245, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(80, 60, 120, 0.15);
+    width: 85%;
+    margin: 30px auto;
+    padding: 25px;
+    transition: background 1s ease-in-out;
+    position: relative;
+  }
+
+  #krishna-info {
+    font-size: 1.15em;
+    line-height: 1.9;
+    padding: 0 10px;
+    color: #4a3b69;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  img {
+    border-radius: 18px;
+    width: 280px;
+    height: auto;
+    margin-top: 20px;
+    box-shadow: 0 4px 18px rgba(100, 80, 150, 0.35);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
+
+  #changeContentBtn {
+    background-color: #a48edc;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 25px;
+    box-shadow: 0 0 10px rgba(170, 140, 250, 0.3);
+  }
+
+  #changeContentBtn:hover {
+    background-color: #8565d1;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(150, 120, 255, 0.4);
+  }
+
+  /* Floating Sparkles */
+  .sparkle {
+    position: absolute;
+    background: rgba(170, 130, 255, 0.2);
+    border-radius: 50%;
+    animation: floatUp 20s linear infinite;
+    filter: blur(2px);
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0.6; }
+    100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+  }
+
+  /* Gallery Section */
+  #gallery {
+    margin: 50px auto;
+    width: 90%;
+  }
+
+  #gallery h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    color: #6046b6;
+    text-shadow: 0 0 10px rgba(150, 120, 255, 0.4);
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(100, 80, 150, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+  }
+
+  .gallery-grid img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(160, 130, 250, 0.5);
+  }
+
+  /* Modal for expanded image */
+  #modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(60, 40, 100, 0.8);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+  }
+
+  #modal img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(180, 150, 250, 0.7);
+    animation: fadeIn 1s ease;
+  }
+
+  /* Shloka Section */
+  #shloka {
+    margin: 60px auto;
+    width: 80%;
+    background-color: rgba(245, 240, 255, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(90, 70, 150, 0.2);
+    font-family: 'Raleway', sans-serif;
+    animation: fadeIn 3s ease;
+  }
+
+  .sanskrit {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8em;
+    color: #5e3ca3;
+    text-shadow: 0 0 15px rgba(190, 150, 255, 0.6);
+    animation: softGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes softGlow {
+    0%, 100% { text-shadow: 0 0 12px rgba(150, 120, 255, 0.6); }
+    50% { text-shadow: 0 0 25px rgba(190, 150, 255, 0.9); }
+  }
+
+  .meaning {
+    font-size: 1.1em;
+    margin-top: 15px;
+    color: #493a70;
+    line-height: 1.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    h1 { font-size: 2.3em; }
+    #krishna-info { font-size: 1em; }
+    img { width: 220px; }
+    .sanskrit { font-size: 1.4em; }
+  }
+
+  audio {
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+  <h1>Lord Krishna: The Eternal Melody</h1>
+
+  <!-- Floating Sparkles -->
+  <div class="sparkle" style="width:60px; height:60px; left:5%; animation-delay:0s;"></div>
+  <div class="sparkle" style="width:80px; height:80px; left:30%; animation-delay:4s;"></div>
+  <div class="sparkle" style="width:50px; height:50px; left:60%; animation-delay:7s;"></div>
+  <div class="sparkle" style="width:100px; height:100px; left:85%; animation-delay:10s;"></div>
+
+  <div id="container">
+    <div id="krishna-info">
+      Lord Krishna, the embodiment of divine love and wisdom, enchants all beings with his flute, guiding souls toward peace and devotion.
+    </div>
+
+    <img id="photo" src="krishna5.jpg" alt="Lord Krishna">
+
+    <br>
+    <button id="changeContentBtn">Next Divine Moment</button>
+
+    <!-- Optional Background Music -->
+    <audio controls loop>
+      <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_d0a3f871f3.mp3?filename=divine-flute-melody-143008.mp3" type="audio/mp3">
+      Your browser does not support audio.
+    </audio>
+  </div>
+
+  <!-- Divine Gallery -->
+  <section id="gallery">
+    <h2>Gallery of Krishna</h2>
+    <div class="gallery-grid">
+      <img src="krishna7.jpg" alt="Krishna as a Child" onclick="openModal(this.src)">
+      <img src="krishna3.jpg" alt="Krishna with Radha" onclick="openModal(this.src)">
+      <img src="krishna6.jpg" alt="Krishna and Arjuna" onclick="openModal(this.src)">
+      <img src="krishna5.jpg" alt="Krishna Divine Art" onclick="openModal(this.src)">
+      <img src="krishna1.jpg" alt="Krishna with Flute" onclick="openModal(this.src)">
+      <img src="krishna2.jpg" alt="Makhan Chor Krishna" onclick="openModal(this.src)">
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" onclick="closeModal()">
+    <img id="modal-img" src="" alt="Expanded Krishna Image">
+  </div>
+
+  <!-- Shloka Section -->
+  <section id="shloka">
+    <div class="sanskrit">“वासुदेवसुतं देवं कंसचाणूरमर्दनम् ।<br> देवकीपरमानन्दं कृष्णं वन्दे जगद्गुरुम् ॥”</div>
+    <div class="meaning">
+      <strong>Meaning:</strong>  
+      I bow to Lord Krishna — the son of Vasudeva, destroyer of Kansa and Chanura,  
+      supreme joy of Mother Devaki, and the eternal teacher of the universe.
+    </div>
+  </section>
+
+  <script>
+    const info = document.getElementById('krishna-info');
+    const photo = document.getElementById('photo');
+    const button = document.getElementById('changeContentBtn');
+    const container = document.getElementById('container');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+
+    const descriptions = [
+      "Krishna’s flute sings the song of love — a call that transcends time and awakens the heart.",
+      "As the divine child of Vrindavan, Krishna danced among the gopis, spreading joy and innocence across the world.",
+      "In the Bhagavad Gita, Krishna revealed eternal truths — teaching humanity the path of dharma and self-realization.",
+      "Radha’s devotion to Krishna symbolizes pure love, unbound by form or reason — a union of soul and divinity.",
+      "Krishna’s smile illuminates the universe — every glance a promise of grace and eternal harmony."
+    ];
+
+    const images = [
+      "https://upload.wikimedia.org/wikipedia/commons/6/6a/Lord_Krishna_as_a_Child.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/f/f9/Krishna_with_Radha.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/38/Krishna_and_Arjuna_in_the_Chariot.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/2/2f/Krishna_flute_Tribhuvan.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/9/90/Lord_Krishna_Artwork.jpg"
+    ];
+
+    let index = 0;
+
+    function changeContent() {
+      index = (index + 1) % descriptions.length;
+      info.style.animation = 'none';
+      photo.style.animation = 'none';
+      void info.offsetWidth; // Restart animation
+      info.innerHTML = descriptions[index];
+      photo.src = images[index];
+      info.style.animation = 'fadeIn 2s forwards';
+      photo.style.animation = 'fadeIn 2s forwards';
+      container.style.backgroundColor = index % 2 === 0 ? 'rgba(250, 245, 255, 0.85)' : 'rgba(235, 225, 255, 0.9)';
+    }
+
+    button.addEventListener('click', changeContent);
+
+    // Auto slideshow every 8 seconds
+    setInterval(changeContent, 8000);
+
+    // Modal functions
+    function openModal(src) {
+      modal.style.display = "flex";
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
